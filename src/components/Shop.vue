@@ -4,6 +4,7 @@
     <ul>
       <li v-for="item in store.shopItems" :key="item.id" class="flex justify-between mb-2">
         <span>{{ item.name }} - {{ item.cost }} 积分</span>
+        <button @click="store.removeShopItem(item.id)" class="bg-purple-500 text-white px-2 rounded">删除</button>
         <button @click="store.buyItem(item.id)" class="bg-purple-500 text-white px-2 rounded">兑换</button>
       </li>
     </ul>

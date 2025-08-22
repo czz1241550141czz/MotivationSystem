@@ -18,16 +18,20 @@ import { useMainStore } from '../store'
 const store = useMainStore()
 const result = ref('')
 
-const prizes = ['+50 积分', '+100 积分', '再来一次', '空奖']
+const prizes = ['+3 积分', '+4 积分', '+5 积分','+6 积分','+7积分','+8积分','+9 积分']
 
 function spin() {
   if (store.lotteryChances <= 0) return
   store.useLottery()
   const prize = prizes[Math.floor(Math.random() * prizes.length)]
   result.value = prize
-  if (prize.includes('+50')) store.points += 50
-  if (prize.includes('+100')) store.points += 100
-  if (prize.includes('再来一次')) store.lotteryChances++
+  if (prize.includes('+3')) store.points += 3
+  if (prize.includes('+4')) store.points += 4
+  if (prize.includes('+5')) store.points += 5
+  if (prize.includes('+6')) store.points += 6
+  if (prize.includes('+7')) store.points += 7
+  if (prize.includes('+8')) store.points += 8
+  if (prize.includes('+9')) store.points += 9
   store.save()
 }
 </script>

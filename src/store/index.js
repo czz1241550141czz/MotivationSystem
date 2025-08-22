@@ -5,13 +5,27 @@ export const useMainStore = defineStore('main', {
     points: 0,
     tasks: [],         // {id, name, reward, chance}
     shopItems: [
-      { id: 1, name: '游戏1h', cost: 21 }
+      { id: 1, name: '游戏1h', cost: 21 },
+      { id: 2, name: '购买游戏 < 20元', cost: 200 },
     ],
     lotteryChances: 0
   }),
   actions: {
+    addShopItem(item) {
+  const id = Date.now()
+  this.shopItems.push({ id, ...item })
+  this.save() // 添加后保存到localStorage
+},
+    removeShopItem(itemId) {
+      this.shopItems = this.shopItems.filter(i => i.id !== itemId)
+      this.save()
+    },
     addTask(task) {
       this.tasks.push({ ...task, id: Date.now() })
+      this.save()
+    },
+    removeTask(id) {
+      this.tasks = this.tasks.filter(t => t.id !== id)
       this.save()
     },
     completeTask(taskId) {

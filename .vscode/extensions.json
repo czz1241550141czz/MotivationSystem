@@ -1,0 +1,5 @@
+{
+  "recommendations": ["Vue.volar"],
+  "files.encoding": "utf8",
+"files.autoGuessEncoding": true
+}
